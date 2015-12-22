@@ -1,0 +1,87 @@
+.cardsBlock
+  border 1px #eee solid
+  box-shadow 0 0px 1px rgba(0,0,0,0.3)
+  display block
+  position relative
+  margin-bottom 40px
+  overflow hidden
+  color #fff
+
+  &:after
+    content ""
+    display block
+    padding-top 100%
+
+  &-content
+  &-background
+  &-overlay
+    position absolute
+    top 10px
+    right @top
+    bottom @top
+    left @top
+
+  &-title
+    font-size 30px
+    height 40px
+    overflow hidden
+    line-height 1
+    word-break break-word
+
+  &-description
+    font-size 26px
+
+  &-content
+    padding 10px
+    box-sizing border-box
+    z-index 2
+
+  &-overlay
+    background rgba(#000, .5)
+    z-index 1
+
+  &-background
+    display block
+    background-repeat no-repeat
+    background-position center
+    background-size cover
+
+
+
+.cardsBlock
+  &-content
+    padding 30px
+  &-title
+    font-size 60px
+    height @font-size * 3
+    color gold
+
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px)
+  .cardsBlock
+    &-content
+      padding 20px
+    &-title
+      font-size 40px
+      height @font-size * 4.2
+      color red
+
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px)
+  .cardsBlock
+    &-content
+      padding 20px
+    &-title
+      font-size 30px
+      height @font-size * 4.2
+      color yellow
+
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px)
+  .cardsBlock
+    &-content
+      padding 15px
+    &-title
+      font-size 20px
+      height @font-size * 4.2
+      color white

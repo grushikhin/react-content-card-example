@@ -1,0 +1,171 @@
+body {
+  background: #fafafa;
+  min-width: 600px;
+}
+.content {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+.preloader {
+  width: 40px;
+  height: 40px;
+  margin: 100px auto;
+  background-color: #333;
+  border-radius: 100%;
+  -webkit-animation: sk-scaleout 1s infinite ease-in-out;
+  animation: sk-scaleout 1s infinite ease-in-out;
+}
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@-webkit-keyframes preloader {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes preloader {
+  to {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@-webkit-keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+@keyframes sk-scaleout {
+  0% {
+    -webkit-transform: scale(0);
+    transform: scale(0);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+    opacity: 0;
+  }
+}
+
+.cardsBlock {
+  border: 1px #eee solid;
+  box-shadow: 0 0px 1px rgba(0,0,0,0.3);
+  display: block;
+  position: relative;
+  margin-bottom: 40px;
+  overflow: hidden;
+  color: #fff;
+}
+.cardsBlock:after {
+  content: "";
+  display: block;
+  padding-top: 100%;
+}
+.cardsBlock-content,
+.cardsBlock-background,
+.cardsBlock-overlay {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  bottom: 10px;
+  left: 10px;
+}
+.cardsBlock-title {
+  font-size: 30px;
+  height: 40px;
+  overflow: hidden;
+  line-height: 1;
+  word-break: break-word;
+}
+.cardsBlock-description {
+  font-size: 26px;
+}
+.cardsBlock-content {
+  padding: 10px;
+  box-sizing: border-box;
+  z-index: 2;
+}
+.cardsBlock-overlay {
+  background: rgba(0,0,0,0.5);
+  z-index: 1;
+}
+.cardsBlock-background {
+  display: block;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+.cardsBlock-content {
+  padding: 30px;
+}
+.cardsBlock-title {
+  font-size: 60px;
+  height: 180px;
+  color: #ffd700;
+}
+/* Small devices (tablets, 768px and up) */
+@media (min-width: 768px) {
+  .cardsBlock-content {
+    padding: 20px;
+  }
+  .cardsBlock-title {
+    font-size: 40px;
+    height: 168px;
+    color: #f00;
+  }
+}
+/* Medium devices (desktops, 992px and up) */
+@media (min-width: 992px) {
+  .cardsBlock-content {
+    padding: 20px;
+  }
+  .cardsBlock-title {
+    font-size: 30px;
+    height: 126px;
+    color: #ff0;
+  }
+}
+/* Large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  .cardsBlock-content {
+    padding: 15px;
+  }
+  .cardsBlock-title {
+    font-size: 20px;
+    height: 84px;
+    color: #fff;
+  }
+}
+
+
+.header {
+  height: 50px;
+  background-color: #ececec;
+  border: 1px solid #bdbdbd;
+  border-top: 1px #333 solid;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1) inset;
+}
+.header-title {
+  font-size: 26px;
+  height: 50px;
+  line-height: 50px;
+  float: left;
+}
+.header-link {
+  float: right;
+  line-height: 50px;
+}
