@@ -26,29 +26,6 @@ body {
     opacity: 0;
   }
 }
-@-webkit-keyframes preloader {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@keyframes preloader {
-  to {
-    -webkit-transform: rotate(360deg);
-    transform: rotate(360deg);
-  }
-}
-@-webkit-keyframes sk-scaleout {
-  0% {
-    -webkit-transform: scale(0);
-    transform: scale(0);
-  }
-  100% {
-    -webkit-transform: scale(1);
-    transform: scale(1);
-    opacity: 0;
-  }
-}
 @keyframes sk-scaleout {
   0% {
     -webkit-transform: scale(0);
@@ -59,6 +36,19 @@ body {
     transform: scale(1);
     opacity: 0;
   }
+}
+
+.cardsBlock-controls {
+  text-align: center;
+}
+.cardsBlock-controls .btn {
+  color: #fff;
+}
+.cardsBlock-controls .btn:hover {
+  color: #6495ed;
+}
+.cardsBlock-controls-remove.btn:hover {
+  color: #f00;
 }
 
 .cardsBlock {
@@ -73,26 +63,26 @@ body {
 .cardsBlock:after {
   content: "";
   display: block;
-  padding-top: 100%;
+  padding-top: 75%;
 }
 .cardsBlock-content,
 .cardsBlock-background,
-.cardsBlock-overlay {
+.cardsBlock-overlay,
+.cardsBlock-tooltip {
   position: absolute;
   top: 10px;
   right: 10px;
   bottom: 10px;
   left: 10px;
 }
-.cardsBlock-title {
-  font-size: 30px;
-  height: 40px;
+.cardsBlock-title,
+.cardsBlock-description {
   overflow: hidden;
   line-height: 1;
   word-break: break-word;
 }
 .cardsBlock-description {
-  font-size: 26px;
+  position: absolute;
 }
 .cardsBlock-content {
   padding: 10px;
@@ -100,7 +90,9 @@ body {
   z-index: 2;
 }
 .cardsBlock-overlay {
-  background: rgba(0,0,0,0.5);
+  background: #000;
+  transition: opacity 0.2s ease-in;
+  opacity: 0.5;
   z-index: 1;
 }
 .cardsBlock-background {
@@ -109,45 +101,89 @@ body {
   background-position: center;
   background-size: cover;
 }
+.cardsBlock-tooltip {
+  text-align: center;
+  overflow: hidden;
+  top: auto;
+  background: #000;
+  z-index: 3;
+  height: 50px;
+  padding-top: 6px;
+  max-height: 0;
+  opacity: 0;
+  transition: all 0.1s ease-in;
+}
+.cardsBlock:hover .cardsBlock-tooltip {
+  max-height: 50px;
+  opacity: 0.9;
+}
 .cardsBlock-content {
   padding: 30px;
 }
 .cardsBlock-title {
-  font-size: 60px;
-  height: 180px;
-  color: #ffd700;
+  font-size: 45px;
+  margin-bottom: 30px;
+  max-height: 184.49999999999997px;
+}
+.cardsBlock-description {
+  font-size: 30px;
+  bottom: 30px;
+  left: 30px;
+  right: 30px;
+  max-height: 153px;
 }
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px) {
   .cardsBlock-content {
-    padding: 20px;
+    padding: 26px;
   }
   .cardsBlock-title {
-    font-size: 40px;
-    height: 168px;
-    color: #f00;
+    font-size: 26px;
+    margin-bottom: 26px;
+    max-height: 106.6px;
+  }
+  .cardsBlock-description {
+    font-size: 16px;
+    bottom: 26px;
+    left: 26px;
+    right: 26px;
+    max-height: 65.6px;
   }
 }
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px) {
   .cardsBlock-content {
-    padding: 20px;
+    padding: 18px;
   }
   .cardsBlock-title {
-    font-size: 30px;
-    height: 126px;
-    color: #ff0;
+    font-size: 18px;
+    margin-bottom: 18px;
+    max-height: 73.8px;
+  }
+  .cardsBlock-description {
+    font-size: 16px;
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    max-height: 65.6px;
   }
 }
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px) {
   .cardsBlock-content {
-    padding: 15px;
+    padding: 18px;
   }
   .cardsBlock-title {
-    font-size: 20px;
-    height: 84px;
-    color: #fff;
+    font-size: 16px;
+    margin-bottom: 18px;
+    max-height: 65.6px;
+  }
+  .cardsBlock-description {
+    font-size: 14px;
+    bottom: 18px;
+    left: 18px;
+    right: 18px;
+    max-height: 57.39999999999999px;
   }
 }
 
