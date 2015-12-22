@@ -1,0 +1,24 @@
+{
+  "name": "react-content-card-example",
+  "version": "1.0.0",
+  "description": "demo",
+  "private": true,
+  "devDependencies": {
+    "autoprefixer-stylus": "^0.8.1",
+    "browserify": "^12.0.1",
+    "gulp": "^3.9.0",
+    "gulp-babel": "^6.1.1",
+    "gulp-concat": "^2.6.0",
+    "gulp-connect": "^2.3.1",
+    "gulp-stylus": "^2.1.1",
+    "gulp-watch": "^4.3.5",
+    "reactify": "^1.1.1",
+    "vinyl-source-stream": "^1.1.0"
+  },
+  "dependencies": {
+    "bootstrap": "^3.3.6",
+    "jquery": "^2.1.4",
+    "react": "^0.14.3",
+    "react-dom": "^0.14.3"
+  }
+}
