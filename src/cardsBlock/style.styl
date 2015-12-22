@@ -1,3 +1,19 @@
+
+card-mixin($padding, $titleFontSize, $descriptionFontSize, $titleRows, $descriptionRows)
+  .cardsBlock
+    &-content
+      padding $padding
+    &-title
+      font-size $titleFontSize
+      margin-bottom $padding
+      max-height @font-size * ($titleRows + 0.1)
+    &-description
+      font-size $descriptionFontSize
+      bottom $padding
+      left $padding
+      right $padding
+      max-height @font-size * ($descriptionRows + 0.1)
+
 .cardsBlock
   border 1px #eee solid
   box-shadow 0 0px 1px rgba(0,0,0,0.3)
@@ -10,11 +26,12 @@
   &:after
     content ""
     display block
-    padding-top 100%
+    padding-top 75%
 
   &-content
   &-background
   &-overlay
+  &-tooltip
     position absolute
     top 10px
     right @top
@@ -22,14 +39,13 @@
     left @top
 
   &-title
-    font-size 30px
-    height 40px
+  &-description
     overflow hidden
     line-height 1
     word-break break-word
 
   &-description
-    font-size 26px
+    position absolute
 
   &-content
     padding 10px
@@ -37,7 +53,9 @@
     z-index 2
 
   &-overlay
-    background rgba(#000, .5)
+    background #000
+    transition opacity .2s ease-in
+    opacity .5
     z-index 1
 
   &-background
@@ -46,42 +64,33 @@
     background-position center
     background-size cover
 
+  &-tooltip
+    text-align center
+    overflow hidden
+    top auto
+    background #000
+    z-index 3
+    height 50px
+    padding-top 6px
+    max-height 0
+    opacity 0
+    transition all .1s ease-in
 
+  &:hover &-tooltip
+    max-height 50px
+    opacity .9
 
-.cardsBlock
-  &-content
-    padding 30px
-  &-title
-    font-size 60px
-    height @font-size * 3
-    color gold
+card-mixin(30px, 45px, 30px, 4, 5)
 
 /* Small devices (tablets, 768px and up) */
 @media (min-width: 768px)
-  .cardsBlock
-    &-content
-      padding 30px
-    &-title
-      font-size 30px
-      height @font-size * 4.2
-      color red
+  card-mixin(26px, 26px, 16px, 4, 4)
 
 /* Medium devices (desktops, 992px and up) */
 @media (min-width: 992px)
-  .cardsBlock
-    &-content
-      padding 25px
-    &-title
-      font-size 25px
-      height @font-size * 4.2
-      color yellow
+  card-mixin(18px, 18px, 16px, 4, 4)
 
 /* Large devices (large desktops, 1200px and up) */
 @media (min-width: 1200px)
-  .cardsBlock
-    &-content
-      padding 20px
-    &-title
-      font-size 20px
-      height @font-size * 4.2
-      color white
+  card-mixin(18px, 16px, 14px, 4, 4)
+

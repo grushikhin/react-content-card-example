@@ -27,21 +27,23 @@ module.exports = React.createClass({
         if (!this.state.dataLoaded) {
             content = <div className="preloader"></div>;
         } else if (this.state.error) {
-            content = this.state.error;
+            content = <div className="alert alert-danger">{this.state.error}</div>;
         } else if (this.state.data.length) {
             content = this.state.data.map(function(item) {
                 return (
-                    <div className="col col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <div className="col col-lg-3 col-md-4 col-sm-6 col-xs-12"
+                        key={item.id}>
                         <CardsBlock
                             title={item.title}
                             description={item.description}
                             image={item.file.item.cover.medium}
+                            id={item.id}
                         />
                     </div>
                 );
             });
         } else {
-            content = 'Ops. List is empty.'
+            content = <div className="alert alert-warning">'Ops. List is empty.'</div>;
         }
 
         return <div className="cardsList row">{content}</div>;

@@ -34,7 +34,6 @@ gulp.task('styles', function() {
 gulp.task('connect', function() {
     connect.server({
         port: 8000,
-        //root: '/',
         livereload: true
     });
 });

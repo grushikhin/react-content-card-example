@@ -5,7 +5,7 @@ var App = React.createClass({
     render: function() {
         return (
             <div>
-                <Header></Header>
+                <Header url="https://github.com/grushikhin/react-content-card-example/tree/gh-pages"/>
                 <div className="content container">
                     <CardsList url={this.props.url}></CardsList>
                 </div>
