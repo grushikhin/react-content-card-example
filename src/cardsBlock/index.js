@@ -15,7 +15,7 @@ module.exports = React.createClass({
                 <div className="cardsBlock-background" style={{backgroundImage: 'url(' + this.props.image + ')' }}></div>
                 <div className="cardsBlock-overlay"></div>
                 <div className="cardsBlock-tooltip">
-                    <CardsBlockControls id={this.props.id}></CardsBlockControls>
+                    <CardsBlockControls id={this.props.id} url={this.props.url} removeHandler={this.props.removeHandler}></CardsBlockControls>
                 </div>
             </div>
         );

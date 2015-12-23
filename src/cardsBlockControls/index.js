@@ -1,14 +1,14 @@
 module.exports = React.createClass({
-    editBtnClickHandler: function() {
-        console.log("Edit card " + this.props.id);
-    },
-
     printBtnClickHandler: function() {
         console.log("Print card " + this.props.id);
     },
 
-    deleteBtnClickHandler: function() {
-        console.log("Delete card " + this.props.id);
+    removeBtnClickHandler: function() {
+        console.log("Remove card " + this.props.id);
+
+        if (this.props.removeHandler) {
+            this.props.removeHandler(this.props.id);
+        }
     },
 
     render: function() {
@@ -16,9 +16,9 @@ module.exports = React.createClass({
         return (
             <div className="cardsBlock-controls">
                 <div className="btn-group">
-                    <div className="btn cardsBlock-controls-edit"   onClick={this.editBtnClickHandler}><span className="glyphicon glyphicon-edit"></span></div>
-                    <div className="btn cardsBlock-controls-remove" onClick={this.deleteBtnClickHandler}><span className="glyphicon glyphicon-trash"></span></div>
-                    <div className="btn cardsBlock-controls-open"   onClick={this.printBtnClickHandler}><span className="glyphicon glyphicon-print"></span></div>
+                    <a className="btn cardsBlock-controls-open" href={this.props.url}><span className="glyphicon glyphicon-share-alt"></span></a>
+                    <div className="btn cardsBlock-controls-remove" onClick={this.removeBtnClickHandler}><span className="glyphicon glyphicon-trash"></span></div>
+                    <div className="btn cardsBlock-controls-open" onClick={this.printBtnClickHandler}><span className="glyphicon glyphicon-print"></span></div>
                 </div>
             </div>
         );

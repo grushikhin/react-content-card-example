@@ -19,16 +19,16 @@ ReactDOM.render(React.createElement(App, {url: "http://api.geometria.ru/v1/video
 
 },{"./cardsList/index":4,"./header/index":5}],2:[function(require,module,exports){
 module.exports = React.createClass({displayName: "exports",
-    editBtnClickHandler: function() {
-        console.log("Edit card " + this.props.id);
-    },
-
     printBtnClickHandler: function() {
         console.log("Print card " + this.props.id);
     },
 
-    deleteBtnClickHandler: function() {
-        console.log("Delete card " + this.props.id);
+    removeBtnClickHandler: function() {
+        console.log("Remove card " + this.props.id);
+
+        if (this.props.removeHandler) {
+            this.props.removeHandler(this.props.id);
+        }
     },
 
     render: function() {
@@ -36,8 +36,8 @@ module.exports = React.createClass({displayName: "exports",
         return (
             React.createElement("div", {className: "cardsBlock-controls"}, 
                 React.createElement("div", {className: "btn-group"}, 
-                    React.createElement("div", {className: "btn cardsBlock-controls-edit", onClick: this.editBtnClickHandler}, React.createElement("span", {className: "glyphicon glyphicon-edit"})), 
-                    React.createElement("div", {className: "btn cardsBlock-controls-remove", onClick: this.deleteBtnClickHandler}, React.createElement("span", {className: "glyphicon glyphicon-trash"})), 
+                    React.createElement("a", {className: "btn cardsBlock-controls-open", href: this.props.url}, React.createElement("span", {className: "glyphicon glyphicon-share-alt"})), 
+                    React.createElement("div", {className: "btn cardsBlock-controls-remove", onClick: this.removeBtnClickHandler}, React.createElement("span", {className: "glyphicon glyphicon-trash"})), 
                     React.createElement("div", {className: "btn cardsBlock-controls-open", onClick: this.printBtnClickHandler}, React.createElement("span", {className: "glyphicon glyphicon-print"}))
                 )
             )
@@ -63,7 +63,7 @@ module.exports = React.createClass({displayName: "exports",
                 React.createElement("div", {className: "cardsBlock-background", style: {backgroundImage: 'url(' + this.props.image + ')'}}), 
                 React.createElement("div", {className: "cardsBlock-overlay"}), 
                 React.createElement("div", {className: "cardsBlock-tooltip"}, 
-                    React.createElement(CardsBlockControls, {id: this.props.id})
+                    React.createElement(CardsBlockControls, {id: this.props.id, url: this.props.url, removeHandler: this.props.removeHandler})
                 )
             )
         );
@@ -95,7 +95,22 @@ module.exports = React.createClass({displayName: "exports",
                 self.setState({ error: 'Problems with loading data.', dataLoaded: true });
             });
     },
+    removeItem: function(id) {
+        var card = $.grep(this.state.data, function(e){ return e.id == id; });
+        card = card && card[0];
+
+        if (card) {
+            var index = this.state.data.indexOf(card);
+
+            this.setState(function(state) {
+                state.data.splice(index, 1);
+                return state;
+            });
+        }
+    },
+
     render: function() {
+        var self = this;
         var content;
         if (!this.state.dataLoaded) {
             content = React.createElement("div", {className: "preloader"});
@@ -110,13 +125,15 @@ module.exports = React.createClass({displayName: "exports",
                             title: item.title, 
                             description: item.description, 
                             image: item.file.item.cover.medium, 
-                            id: item.id}
+                            id: item.id, 
+                            url: item.url, 
+                            removeHandler: self.removeItem}
                         )
                     )
                 );
             });
         } else {
-            content = React.createElement("div", {className: "alert alert-warning"}, "'Ops. List is empty.'");
+            content = React.createElement("div", {className: "alert alert-warning"}, "'Oops. List is empty.'");
         }
 
         return React.createElement("div", {className: "cardsList row"}, content);
