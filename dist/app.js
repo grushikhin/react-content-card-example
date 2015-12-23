@@ -36,8 +36,8 @@ module.exports = React.createClass({displayName: "exports",
         return (
             React.createElement("div", {className: "cardsBlock-controls"}, 
                 React.createElement("div", {className: "btn-group"}, 
-                    React.createElement("a", {className: "btn cardsBlock-controls-open", href: this.props.url}, React.createElement("span", {className: "glyphicon glyphicon-share-alt"})),
-                    React.createElement("div", {className: "btn cardsBlock-controls-remove", onClick: this.removeBtnClickHandler}, React.createElement("span", {className: "glyphicon glyphicon-trash"})),
+                    React.createElement("a", {className: "btn cardsBlock-controls-open", href: this.props.url}, React.createElement("span", {className: "glyphicon glyphicon-share-alt"})), 
+                    React.createElement("div", {className: "btn cardsBlock-controls-remove", onClick: this.removeBtnClickHandler}, React.createElement("span", {className: "glyphicon glyphicon-trash"})), 
                     React.createElement("div", {className: "btn cardsBlock-controls-open", onClick: this.printBtnClickHandler}, React.createElement("span", {className: "glyphicon glyphicon-print"}))
                 )
             )
@@ -125,8 +125,8 @@ module.exports = React.createClass({displayName: "exports",
                             title: item.title, 
                             description: item.description, 
                             image: item.file.item.cover.medium, 
-                            id: item.id,
-                            url: item.url,
+                            id: item.id, 
+                            url: item.url, 
                             removeHandler: self.removeItem}
                         )
                     )
