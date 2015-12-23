@@ -22,7 +22,22 @@ module.exports = React.createClass({
                 self.setState({ error: 'Problems with loading data.', dataLoaded: true });
             });
     },
+    removeItem: function(id) {
+        var card = $.grep(this.state.data, function(e){ return e.id == id; });
+        card = card && card[0];
+
+        if (card) {
+            var index = this.state.data.indexOf(card);
+
+            this.setState(function(state) {
+                state.data.splice(index, 1);
+                return state;
+            });
+        }
+    },
+
     render: function() {
+        var self = this;
         var content;
         if (!this.state.dataLoaded) {
             content = <div className="preloader"></div>;
@@ -38,12 +53,14 @@ module.exports = React.createClass({
                             description={item.description}
                             image={item.file.item.cover.medium}
                             id={item.id}
+                            url={item.url}
+                            removeHandler={self.removeItem}
                         />
                     </div>
                 );
             });
         } else {
-            content = <div className="alert alert-warning">'Ops. List is empty.'</div>;
+            content = <div className="alert alert-warning">'Oops. List is empty.'</div>;
         }
 
         return <div className="cardsList row">{content}</div>;

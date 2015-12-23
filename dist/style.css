@@ -38,19 +38,6 @@ body {
   }
 }
 
-.cardsBlock-controls {
-  text-align: center;
-}
-.cardsBlock-controls .btn {
-  color: #fff;
-}
-.cardsBlock-controls .btn:hover {
-  color: #6495ed;
-}
-.cardsBlock-controls-remove.btn:hover {
-  color: #f00;
-}
-
 .cardsBlock {
   border: 1px #eee solid;
   box-shadow: 0 0px 1px rgba(0,0,0,0.3);
@@ -70,10 +57,10 @@ body {
 .cardsBlock-overlay,
 .cardsBlock-tooltip {
   position: absolute;
-  top: 10px;
-  right: 10px;
-  bottom: 10px;
-  left: 10px;
+  top: 3px;
+  right: 3px;
+  bottom: 3px;
+  left: 3px;
 }
 .cardsBlock-title,
 .cardsBlock-description {
@@ -185,6 +172,19 @@ body {
     right: 18px;
     max-height: 57.39999999999999px;
   }
+}
+
+.cardsBlock-controls {
+  text-align: center;
+}
+.cardsBlock-controls .btn {
+  color: #fff;
+}
+.cardsBlock-controls .btn:hover {
+  color: #6495ed;
+}
+.cardsBlock-controls-remove.btn:hover {
+  color: #f00;
 }
 
 
